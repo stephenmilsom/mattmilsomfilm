@@ -1,0 +1,77 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: field_notes
+    label: Field Notes (Blog)
+    type: file
+    path: data/field-notes.json
+    format: json
+    fields:
+      - name: posts
+        label: Posts
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Post Title
+            type: string
+            required: true
+          - name: date
+            label: Date
+            type: date
+            required: true
+          - name: category
+            label: Category (e.g. Cinematography, Screenwriting, Set Notes)
+            type: string
+            default: Field Note
+          - name: summary
+            label: Short Excerpt
+            type: text
+            required: true
+          - name: body
+            label: Full Note
+            type: rich-text
+            options:
+              format: html
+            required: true
+
+  - name: projects
+    label: My Projects & Scripts
+    type: file
+    path: data/projects.json
+    format: json
+    fields:
+      - name: items
+        label: Projects
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Project Title
+            type: string
+            required: true
+          - name: type
+            label: Format (e.g. Short Film, Screenplay Extract, Essay)
+            type: string
+            required: true
+          - name: year
+            label: Year
+            type: string
+            default: "2026"
+          - name: logline
+            label: Logline / Description
+            type: text
+            required: true
+          - name: videoUrl
+            label: YouTube or Vimeo Embed URL (optional)
+            type: string
+          - name: pdfFile
+            label: Script / Essay PDF Upload (optional)
+            type: file
+            options:
+              extensions: [pdf]
+          - name: scriptExcerpt
+            label: Courier Screenplay Extract (optional)
+            type: text
