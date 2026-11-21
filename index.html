@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Milsom — Filmmaker & Screenwriter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0b0b0c;
+      color: #e4e4e7;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-serif-display { font-family: 'Playfair Display', serif; }
+    .font-script { font-family: 'Courier Prime', monospace; }
+    .tab-btn.active {
+      color: #f59e0b;
+      border-bottom: 2px solid #f59e0b;
+    }
+    .prose p { margin-bottom: 1rem; line-height: 1.75; color: #d4d4d8; }
+    .prose em { color: #fafafa; font-style: italic; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Header & Navigation -->
+  <header class="border-b border-zinc-800/80 bg-[#0b0b0c]/95 sticky top-0 z-30 backdrop-blur">
+    <div class="max-w-4xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h1 class="font-serif-display text-2xl tracking-wide text-zinc-100">Matthew Milsom</h1>
+        <p class="text-xs uppercase tracking-[0.2em] text-zinc-500 mt-0.5">Filmmaking &bull; Screenwriting &bull; Visual Storytelling</p>
+      </div>
+      <nav class="flex gap-6 text-sm font-medium text-zinc-400">
+        <button onclick="switchTab('home')" id="nav-home" class="tab-btn active pb-1 transition-colors hover:text-zinc-100">Home</button>
+        <button onclick="switchTab('projects')" id="nav-projects" class="tab-btn pb-1 transition-colors hover:text-zinc-100">My Projects</button>
+        <button onclick="switchTab('influences')" id="nav-influences" class="tab-btn pb-1 transition-colors hover:text-zinc-100">Influences</button>
+        <button onclick="switchTab('notes')" id="nav-notes" class="tab-btn pb-1 transition-colors hover:text-zinc-100">Field Notes</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-6 py-12">
+
+    <!-- HOME / ABOUT TAB -->
+    <section id="tab-home" class="space-y-12">
+      <div class="space-y-6">
+        <p class="text-xs uppercase tracking-[0.25em] text-amber-500/90">Portfolio &amp; Showreel</p>
+        <h2 class="font-serif-display text-3xl sm:text-4xl text-zinc-100 leading-tight">
+          Visual storytelling driven by tension, atmosphere, and spare dialogue.
+        </h2>
+        <p class="text-zinc-300 leading-relaxed max-w-2xl">
+          I am a 17-year-old student filmmaker and screenwriter based in Kent, UK, preparing for undergraduate study in Film Production and Screenwriting. My work focuses on genre-inflected short narratives, visual pacing, and character-driven scripts.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 pt-4 border-t border-zinc-800/80">
+        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-lg space-y-2">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-200">Focus Areas</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Directing, Narrative Screenwriting, Shot Composition, and Non-Linear Editing.
+          </p>
+        </div>
+        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-lg space-y-2">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-200">Contact &amp; Enquiries</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            For university admissions enquiries, script requests, or collaboration:
+          </p>
+          <a href="mailto:hello@mattmilsomfilm.co.uk" class="inline-block text-sm text-amber-400 hover:text-amber-300 pt-1">
+            hello@mattmilsomfilm.co.uk
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS TAB (Dynamic from data/projects.json) -->
+    <section id="tab-projects" class="hidden space-y-10">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="font-serif-display text-3xl text-zinc-100">My Projects &amp; Scripts</h2>
+        <p class="text-sm text-zinc-400 mt-1">Short films, original screenplay extracts, and analytical writing.</p>
+      </div>
+      <div id="projects-container" class="space-y-10">
+        <p class="text-sm text-zinc-500">Loading projects...</p>
+      </div>
+    </section>
+
+    <!-- CINEMATIC INFLUENCES TAB -->
+    <section id="tab-influences" class="hidden space-y-10">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="font-serif-display text-3xl text-zinc-100">Cinematic Influences</h2>
+        <p class="text-sm text-zinc-400 mt-1">Directors and visual traditions shaping my approach to framing and rhythm.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-lg space-y-3">
+          <span class="text-xs uppercase tracking-widest text-amber-500">Visual Tension</span>
+          <h3 class="font-serif-display text-xl text-zinc-100">Sergio Leone</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Mastery of temporal expansion—stretching silence and environmental detail before sudden, decisive action. His interplay between extreme wide shots and tight eye-line close-ups heavily informs my blocking.
+          </p>
+        </article>
+        <article class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-lg space-y-3">
+          <span class="text-xs uppercase tracking-widest text-amber-500">Blocking &amp; Weather</span>
+          <h3 class="font-serif-display text-xl text-zinc-100">Akira Kurosawa</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Treating natural elements—rain, wind, smoke—as active emotional forces inside the frame, and using multi-plane staging to guide the viewer's eye without heavy exposition.
+          </p>
+        </article>
+        <article class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-lg space-y-3">
+          <span class="text-xs uppercase tracking-widest text-amber-500">Precision &amp; Tone</span>
+          <h3 class="font-serif-display text-xl text-zinc-100">David Fincher</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Disciplined camera movement motivated strictly by character psychology, paired with low-key lighting palettes and clinical editorial pacing.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FIELD NOTES / BLOG TAB (Dynamic from data/field-notes.json) -->
+    <section id="tab-notes" class="hidden space-y-10">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="font-serif-display text-3xl text-zinc-100">Field Notes</h2>
+        <p class="text-sm text-zinc-400 mt-1">Production logs, scene breakdowns, and notes on craft.</p>
+      </div>
+      <div id="notes-container" class="space-y-8">
+        <p class="text-sm text-zinc-500">Loading field notes...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-500">
+    &copy; 2026 Matthew Milsom. All rights reserved.
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      ['home', 'projects', 'influences', 'notes'].forEach(id => {
+        document.getElementById('tab-' + id).classList.add('hidden');
+        document.getElementById('nav-' + id).classList.remove('active');
+      });
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+      document.getElementById('nav-' + tabId).classList.add('active');
+    }
+
+    async function loadContent() {
+      // Load Projects
+      try {
+        const projRes = await fetch('/data/projects.json');
+        const projData = await projRes.json();
+        const projContainer = document.getElementById('projects-container');
+        projContainer.innerHTML = projData.items.map(item => `
+          <article class="bg-zinc-900/40 border border-zinc-800 p-6 sm:p-8 rounded-lg space-y-5">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-amber-500">${item.type}</span>
+                <h3 class="font-serif-display text-2xl text-zinc-100 mt-1">${item.title}</h3>
+              </div>
+              <span class="text-xs font-mono text-zinc-500">${item.year}</span>
+            </div>
+            <p class="text-sm text-zinc-300 leading-relaxed">${item.logline}</p>
+            ${item.videoUrl ? `
+              <div class="aspect-video w-full rounded overflow-hidden border border-zinc-800 bg-black">
+                <iframe src="${item.videoUrl}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+              </div>
+            ` : ''}
+            ${item.scriptExcerpt ? `
+              <div class="bg-[#121214] border border-zinc-800/90 p-6 rounded overflow-x-auto">
+                <pre class="font-script text-xs sm:text-sm text-zinc-300 whitespace-pre-wrap leading-relaxed">${item.scriptExcerpt}</pre>
+              </div>
+            ` : ''}
+            ${item.pdfFile ? `
+              <div>
+                <a href="${item.pdfFile}" target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-100 px-4 py-2.5 rounded transition-colors">
+                  Download PDF &rarr;
+                </a>
+              </div>
+            ` : ''}
+          </article>
+        `).join('');
+      } catch (e) {
+        console.error('Error loading projects:', e);
+      }
+
+      // Load Field Notes
+      try {
+        const notesRes = await fetch('/data/field-notes.json');
+        const notesData = await notesRes.json();
+        const notesContainer = document.getElementById('notes-container');
+        notesContainer.innerHTML = notesData.posts.map(post => `
+          <article class="border-b border-zinc-800/80 pb-8 space-y-3">
+            <div class="flex items-center gap-3 text-xs text-zinc-500">
+              <span class="uppercase tracking-widest text-amber-500">${post.category || 'Field Note'}</span>
+              <span>&bull;</span>
+              <time>${post.date}</time>
+            </div>
+            <h3 class="font-serif-display text-2xl text-zinc-100">${post.title}</h3>
+            <p class="text-sm text-zinc-400 italic">${post.summary}</p>
+            <div class="prose text-sm pt-2">${post.body}</div>
+          </article>
+        `).join('');
+      } catch (e) {
+        console.error('Error loading field notes:', e);
+      }
+    }
+
+    loadContent();
+  </script>
+</body>
+</html>
